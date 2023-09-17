@@ -8,8 +8,7 @@
 		"Supchikwork2"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Supchik22/AwesomeFarmer"
 	},
 	"license": "MIT-1.0",
 	"icon": "assets/awesomefarmer/icon.png",

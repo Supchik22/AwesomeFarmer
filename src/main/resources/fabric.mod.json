@@ -3,7 +3,7 @@
   "id": "awesomefarmer",
   "version": "${version}",
   "name": "AwesomeFarmer",
-  "description": "Awesome Farmer mod :)",
+  "description": "Simplifies farming",
   "authors": ["Supchikwork2", "loppisspy"],
   "contact": {
     "repo": "https://github.com/Supchik22/AwesomeFarmer"

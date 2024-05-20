@@ -30,7 +30,7 @@ import java.util.function.Predicate;
 public class AwesomeFarmerClient implements ClientModInitializer {
     private boolean isFarmerModeEnabled = false;
     private final KeyBinding toggleFarmerMode = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-            "key.awesomefarmer.farmerMode",
+            "key.awesomefarmer.farmer_mode",
             InputUtil.Type.KEYSYM,
             GLFW.GLFW_KEY_UNKNOWN,
             "category.awesomefarmer"

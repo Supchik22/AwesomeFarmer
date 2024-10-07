@@ -3,6 +3,7 @@ package com.supchikwork;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
@@ -28,13 +29,17 @@ import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class AwesomeFarmerClient implements ClientModInitializer {
-    private boolean isFarmerModeEnabled = false;
+    public boolean isFarmerModeEnabled = false;
     private final KeyBinding toggleFarmerMode = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key.awesomefarmer.farmer_mode",
             InputUtil.Type.KEYSYM,
             GLFW.GLFW_KEY_UNKNOWN,
             "category.awesomefarmer"
     ));
+
+
+
+
 
     private final Map<Block, Predicate<BlockState>> CROPS = Map.of(
             Blocks.BEETROOTS, state -> state.get(BeetrootsBlock.AGE) != 3,
@@ -69,6 +74,7 @@ public class AwesomeFarmerClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        HudRenderCallback.EVENT.register(new AwesomeFarmerOverlay(this));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (this.toggleFarmerMode.wasPressed() && client.currentScreen == null) {
                 this.isFarmerModeEnabled = !this.isFarmerModeEnabled;
